@@ -1,0 +1,180 @@
+<div class="container mt-4">
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="card mb-3" >
+                <div class="card-body">
+                    <h2 class="text-center">Ejercicio 3 (Registrar usuario)</h2>
+                </div>
+            
+                <form method="POST" href="/exerciseThree">
+                    <div class="row mt-2 mb-4 d-flex justify-content-center">
+                        <div class="col-12 col-sm-12 col-md-6 form-group">
+                            <label id="username" class="form-label">Usuario *</label>
+                            <input type="text" class="form-control" name="username" placeholder="Ingresar nombre de usuario" required="required" >
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 form-group">
+                            <label id="email" class="form-label">Correo electrónico *</label>
+                            <input type="email" class="form-control" name="email" placeholder="Confirmar contraseña" required="required" >
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-4 d-flex justify-content-center">
+                        <div class="col-12 col-sm-12 col-md-6 form-group">
+                            <label id="age" class="form-label">Edad *</label>
+                            <input type="number" class="form-control age" name="age" required="required" >
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 form-group">
+                            <label id="gender" class="form-label">Género</label>
+                            <select class="form-control select2" name="gender">
+                                <option selected disabled>Seleccionar género</option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Femenino</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-4 d-flex justify-content-center render-states">
+                        <div class="col-12 col-sm-12 col-md-6 form-group">
+                            <label id="state_1" class="form-label">Estado #1</label>
+                            <select class="form-control select2 state_1 state_general" name="state_1">
+                                <option selected disabled>Seleccionar estado</option>
+                                    <% states.map((state) => {%>
+                                        <option value="<%=state.id%>"><%=state.nombre%></option>
+                                    <%})%>
+                            </select>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 form-group">
+                            <label id="state_2" class="form-label">Estado #2</label>
+                            <select class="form-control select2 state_2 state_general" name="state_2">
+                                <option selected disabled>Seleccionar estado</option>
+                                    <% states.map((state) => {%>
+                                        <option value="<%=state.id%>"><%=state.nombre%></option>
+                                    <%})%>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-4 d-flex justify-content-center render-cities d-none">
+                    </div>
+                    <div class="row mt-2 mb-4 d-flex justify-content-center">
+                        <div class="col-12 col-sm-12 col-md-6">
+                            <label id="password" class="form-label">Contraseña*</label>
+                            <div class="input-group render-password">
+                                <input type="password" class="form-control password" name="password" placeholder="Ingresar contraseña" required="required" >
+                                <span class="input-group-text">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye icon-password-show" viewBox="0 0 16 16">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                                    </svg>
+    
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash icon-password-hide d-none" viewBox="0 0 16 16">
+                                        <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z"/>
+                                        <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829l.822.822zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829z"/>
+                                        <path d="M3.35 5.47c-.18.16-.353.322-.518.487A13.134 13.134 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7.029 7.029 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12-.708.708z"/>
+                                    </svg>
+                                </span>
+                            </div>
+                            <small class="form-text text-muted text-right">Nota: Debe tener 6 a 12 caracteres</small>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 form-group">
+                            <label id="passwordConfirmation" class="form-label">Confirmar contraseña *</label>
+                            <div class="input-group render-password-confirmation">
+                                <input type="password" class="form-control password" name="passwordConfirmation" placeholder="Confirmar contraseña" required="required" >
+                                <span class="input-group-text">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye icon-password-show" viewBox="0 0 16 16">
+                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                                    </svg>
+    
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash icon-password-hide d-none" viewBox="0 0 16 16">
+                                        <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z"/>
+                                        <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829l.822.822zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829z"/>
+                                        <path d="M3.35 5.47c-.18.16-.353.322-.518.487A13.134 13.134 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7.029 7.029 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12-.708.708z"/>
+                                    </svg>
+                                </span>
+                            </div>
+                            <small class="form-text text-muted text-right">Nota: Debe tener 6 a 12 caracteres</small>
+                        </div>
+                    </div>            
+                    <div class="row mb-5">
+                        <div class="col-12 d-flex justify-content-end">
+                            <button type="submit" class="btn btn-success mr-1 data-submit">Guardar</button>
+                        </div>
+                    </div>
+                </form>
+
+                <% if(typeof validations != 'undefined'){ %>
+                    <% validations.map((validation) => {%>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong><%= validation.msg%></strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                   <%})%>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="application/javascript">
+    document.addEventListener('DOMContentLoaded', function () { 
+        $('.state_general').on('change', function(){
+            let state_id   =  $(this).val();
+            let state_name = $(this).attr('name');
+
+            if(state_id != ''){
+                let link = 'exerciseThreeCities/' + state_id + '/' + state_name;
+
+                $.ajax({
+                    url: link,
+                    type:'GET',
+                    data: {},
+                    success: function (response) {
+                        response    = JSON.parse(response);
+                     
+                        if(response.success){
+                            alert(response.message);
+                            return false;
+                        }
+
+                        $('.render-cities').html('');
+                        $('.render-cities').html(response.data[0].form);
+                        $('.render-cities').removeClass('d-none');                    
+                    },
+                    error: function (jqXhr, json, errorThrown) {
+                        var errors = jqXhr.responseJSON;
+                        console.log(errors.message);
+                    }
+                });
+            }
+           
+            
+        });
+
+        $('.age').on('keypress', function(event) {
+            if(event.charCode < 48 || event.charCode > 57){
+                return false;
+            }	
+		});
+
+        $('.render-password .icon-password-show').on('click', function() {
+            $(this).addClass('d-none');
+            $('.render-password .password').attr('type', 'text');
+            $('.render-password .icon-password-hide').removeClass('d-none');
+		});
+
+        $('.render-password .icon-password-hide').on('click', function() {
+            $(this).addClass('d-none');
+            $('.render-password .password').attr('type', 'password');
+            $('.render-password .icon-password-show').removeClass('d-none');
+		});
+
+        $('.render-password-confirmation .icon-password-show').on('click', function() {
+            $(this).addClass('d-none');
+            $('.render-password-confirmation .password').attr('type', 'text');
+            $('.render-password-confirmation .icon-password-hide').removeClass('d-none');
+		});
+
+        $('.render-password-confirmation .icon-password-hide').on('click', function() {
+            $(this).addClass('d-none');
+            $('.render-password-confirmation .password').attr('type', 'password');
+            $('.render-password-confirmation .icon-password-show').removeClass('d-none');
+		});
+    });
+</script>

@@ -1,0 +1,50 @@
+<div class="container mt-4">
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="card mb-3" >
+                <div class="card-body">
+                    <h2 class="text-center">Resultados del Ejercicio 2</h2>
+                </div>
+            
+                <form class="mb-5">
+                    <div class="row mt-2 mb-1 d-flex justify-content-center">
+                        <div class="col-12 col-sm-12 col-md-4 form-group">
+                            <label id="numberOfWords" class="form-label">Número de palabras</label>
+                            <input type="text" class="form-control" name="numberOfWords" value="<% if(typeof values != 'undefined'){%> <%= values.numberOfWords%><%}%>">
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-1 d-flex justify-content-center">
+                        <div class="col-12 col-sm-12 col-md-4 form-group">
+                            <label id="firstWord" class="form-label">Primera palabra</label>
+                            <input type="text" class="form-control" name="firstWord" value="<% if(typeof values != 'undefined'){%> <%= values.firstWord%><%}%>">
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-1 d-flex justify-content-center">
+                        <div class="col-12 col-sm-12 col-md-4 form-group">
+                            <label id="lastWord" class="form-label">Última palabra</label>
+                            <input type="text" class="form-control" name="lastWord" value="<% if(typeof values != 'undefined'){%> <%= values.lastWord%><%}%>">
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-1 d-flex justify-content-center">
+                        <div class="col-12 col-sm-12 col-md-4 form-group">
+                            <label id="reverseWords" class="form-label">Palabras en orden inverso</label>
+                            <input type="text" class="form-control" name="reverseWords" value="<% if(typeof values != 'undefined'){%> <%= values.reverseWords%><%}%>">
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-1 d-flex justify-content-center">
+                        <div class="col-12 col-sm-12 col-md-4 form-group">
+                            <label id="ascendingWords" class="form-label">Palabras ordenas de la a hacia la z</label>
+                            <input type="text" class="form-control" name="ascendingWords" value="<% if(typeof values != 'undefined'){%> <%= values.ascendingWords%><%}%>">
+                        </div>
+                    </div>
+                    <div class="row mt-2 mb-1 d-flex justify-content-center">
+                        <div class="col-12 col-sm-12 col-md-4 form-group">
+                            <label id="descendingWords" class="form-label">Palabras ordenas de la z hacia la a</label>
+                            <input type="text" class="form-control" name="descendingWords" value="<% if(typeof values != 'undefined'){%> <%= values.descendingWords%><%}%>">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
